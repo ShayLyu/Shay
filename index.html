@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shay Liu · 具身智能</title>
+  <meta name="description" content="Shay Liu 的个人主页 —— 具身智能 / 机器人学习" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Noto+Serif+SC:wght@500;700&family=Noto+Sans+SC:wght@400;500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="admin.css" />
+  <script src="theme.js"></script>
+</head>
+<body>
+  <!-- 导航 -->
+  <header class="nav" id="nav">
+    <a href="#home" class="logo"><i class="px-icon" data-icon="robot"></i>SHAY.LIU</a>
+    <div class="nav-right">
+      <nav>
+        <button class="menu-btn" id="menuBtn" aria-label="菜单"><span></span><span></span></button>
+        <ul id="menu">
+          <li><a href="#about"><i>01</i>关于</a></li>
+          <li><a href="#skills"><i>02</i>方向</a></li>
+          <li><a href="#notes"><i>03</i>记录</a></li>
+          <li><a href="#archive"><i>04</i>档案库</a></li>
+        </ul>
+      </nav>
+      <button class="theme-btn" id="themeBtn" aria-label="切换明暗主题" title="切换明暗主题"><i class="px-icon" data-icon="moon"></i></button>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero" id="home">
+      <div class="hero-inner">
+        <p class="status"><span class="dot"></span>Robot online · 让智能拥有身体</p>
+        <h1 class="name">Shay Liu<span class="cursor"></span></h1>
+        <h2 class="role"><span class="prompt">&gt;</span> <span id="typed"></span><span class="caret"></span></h2>
+        <p class="lead">
+          我研究<b class="mark">具身智能</b>：让 AI 不只会"想"，还能在真实世界里看、动、操作。
+          从感知到决策再到控制，我希望机器人能像人一样学习技能、适应环境。
+        </p>
+        <div class="cta">
+          <a href="#notes" class="btn primary">阅读记录 <span>→</span></a>
+          <a href="#archive" class="btn ghost">论文档案库</a>
+        </div>
+      </div>
+
+      <!-- 首屏互动：像素机器狗（逻辑见 dog.js） -->
+      <div class="arm-panel" aria-hidden="true">
+        <div class="win-bar"><span class="sq"></span><span class="sq"></span><span class="sq"></span><b>robodog.exe</b><em id="dogMode">STAND</em></div>
+        <div class="hud-task"><span><span class="k">DOG</span><span id="dogStatus">—</span></span><b id="dogScore">FETCH 0</b></div>
+        <canvas id="dog"></canvas>
+        <div class="hud-hint" id="dogHint">▸ 点击空地扔球 · 鼠标停在它身上摸摸 · 点它会叫</div>
+        <div class="hud-foot" id="dogHud">—</div>
+      </div>
+
+      <a href="#about" class="scroll-hint" aria-label="向下滚动">scroll<span></span></a>
+    </section>
+
+    <!-- 关于 -->
+    <section id="about" class="section">
+      <h3 class="section-title reveal"><i>01</i>关于我<span class="line"></span></h3>
+      <div class="about-grid">
+        <div class="terminal reveal">
+          <div class="term-bar">
+            <span class="r"></span><span class="y"></span><span class="g"></span>
+            <em>shay@robot-lab: ~</em>
+          </div>
+          <pre class="term-body" id="termBody"></pre>
+        </div>
+        <div class="about-side">
+          <p class="reveal">
+            你好！我是 <b>Shay</b>，一名具身智能研究者 / 工程师。
+            我着迷于一个问题：<b class="mark">怎样让机器人像人一样，通过与世界交互来学会技能？</b>
+          </p>
+          <p class="reveal">
+            我的工作横跨机器人学习、3D 视觉感知与 Sim2Real 迁移，
+            关注 VLA 大模型、模仿学习与灵巧操作，希望让通用机器人早一天走进日常生活。
+          </p>
+          <div class="stats">
+            <div class="stat reveal"><b data-count="5">0</b><span>年机器人经验</span></div>
+            <div class="stat reveal"><b data-count="12">0</b><span>真机部署项目</span></div>
+            <div class="stat reveal"><b data-count="10000">0</b><span>条演示轨迹</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 研究方向 -->
+    <section id="skills" class="section">
+      <h3 class="section-title reveal"><i>02</i>研究方向<span class="line"></span></h3>
+      <div class="skill-grid">
+        <div class="card skill reveal">
+          <div class="icon"><i class="px-icon" data-icon="chip"></i></div>
+          <h4>机器人学习</h4>
+          <p>让机器人从演示和试错中学会操作技能。</p>
+          <ul class="tags"><li>VLA</li><li>Diffusion Policy</li><li>模仿学习</li><li>强化学习</li></ul>
+          <div class="bar"><span style="--w:92%"></span></div>
+        </div>
+        <div class="card skill reveal">
+          <div class="icon"><i class="px-icon" data-icon="eye"></i></div>
+          <h4>3D 感知</h4>
+          <p>理解物体、场景与可交互性。</p>
+          <ul class="tags"><li>点云</li><li>位姿估计</li><li>SLAM</li><li>Open-Vocab</li></ul>
+          <div class="bar"><span style="--w:86%"></span></div>
+        </div>
+        <div class="card skill reveal">
+          <div class="icon"><i class="px-icon" data-icon="cube"></i></div>
+          <h4>仿真 &amp; Sim2Real</h4>
+          <p>在虚拟世界大规模训练，再迁移到真机。</p>
+          <ul class="tags"><li>Isaac Sim</li><li>MuJoCo</li><li>域随机化</li><li>数字孪生</li></ul>
+          <div class="bar"><span style="--w:82%"></span></div>
+        </div>
+        <div class="card skill reveal">
+          <div class="icon"><i class="px-icon" data-icon="gear"></i></div>
+          <h4>机器人系统</h4>
+          <p>从运动规划到底层控制，打通整条链路。</p>
+          <ul class="tags"><li>ROS 2</li><li>MoveIt</li><li>阻抗控制</li><li>C++ / Python</li></ul>
+          <div class="bar"><span style="--w:88%"></span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 记录：学习笔记 / 写作（内容见 content/notes/） -->
+    <section id="notes" class="section">
+      <h3 class="section-title reveal"><i>03</i>记录<span class="line"></span></h3>
+      <p class="section-desc reveal">学习笔记、论文精读和踩坑记录。写下来，才算真的学会了。</p>
+      <div class="filter-bar reveal" id="noteTags"></div>
+      <ol class="note-list" id="noteList"><li class="empty">加载中…</li></ol>
+      <button class="btn ghost more-btn" id="noteMore" hidden>更多记录 <span>↓</span></button>
+    </section>
+
+    <!-- 档案库：读过的论文（内容见 content/papers.json） -->
+    <section id="archive" class="section">
+      <h3 class="section-title reveal"><i>04</i>档案库<span class="line"></span></h3>
+      <p class="section-desc reveal">读过、在读和想读的论文。每篇附一句话总结和我的评分。</p>
+      <div class="archive-tools reveal">
+        <label class="search"><i class="px-icon" data-icon="search"></i><input id="paperSearch" type="search" placeholder="搜索标题、作者、标签…" autocomplete="off" /></label>
+        <div class="filter-bar" id="paperStatus"></div>
+      </div>
+      <div class="filter-bar tag-bar reveal" id="paperTags"></div>
+      <p class="archive-count" id="paperCount"></p>
+      <div class="paper-list" id="paperList"></div>
+      <button class="btn ghost more-btn" id="paperMore" hidden>展开全部 <span>↓</span></button>
+    </section>
+  </main>
+
+  <footer>
+    <p>Made with <span class="heart">♥</span> &amp; pixels by Shay · <span id="year"></span> · <a href="https://github.com/" target="_blank" rel="noopener">GitHub</a></p>
+  </footer>
+
+  <script src="main.js"></script>
+  <script src="dog.js"></script>
+  <script src="admin.js"></script>
+  <script src="content.js"></script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+[
+  {
+    "slug": "diffusion-policy",
+    "title": "Diffusion Policy 阅读笔记：把动作生成看作去噪",
+    "date": "2026-11-08",
+    "tags": ["论文笔记", "模仿学习"],
+    "summary": "为什么扩散模型适合表达多峰的动作分布？从 DDPM 公式出发，梳理 Diffusion Policy 的关键设计：动作块、视觉条件与 receding horizon。"
+  },
+  {
+    "slug": "domain-randomization",
+    "title": "Sim2Real 入门：域随机化到底在随机什么",
+    "date": "2026-10-21",
+    "tags": ["Sim2Real", "学习总结"],
+    "summary": "整理了视觉随机化与动力学随机化的常见参数范围，以及我在四足项目里踩过的几个坑。"
+  },
+  {
+    "slug": "ros2-notes",
+    "title": "ROS 2 踩坑记录（持续更新）",
+    "date": "2026-09-30",
+    "tags": ["工程", "ROS 2"],
+    "summary": "QoS 不匹配导致收不到消息、colcon 增量编译、时间同步……把每次排查的过程记下来，下次少走弯路。"
+  }
+]

@@ -1,0 +1,113 @@
+/* =========================================================
+ * 管理员界面（仅登录后出现，见 admin.js）
+ * ========================================================= */
+.adm-lock { overflow: hidden; }
+.adm-overlay {
+  position: fixed; inset: 0; z-index: 200; display: grid; place-items: center; padding: 20px;
+  background: rgba(var(--ink-rgb), .35); backdrop-filter: blur(2px);
+  animation: pxIn .25s steps(3) both;
+}
+.adm-modal {
+  width: min(620px, 100%); max-height: calc(100vh - 40px); display: flex; flex-direction: column;
+  background: var(--paper); border: 2px solid var(--ink); box-shadow: 8px 8px 0 var(--sh); color: var(--ink);
+}
+.adm-modal.wide { width: min(1180px, 100%); height: calc(100vh - 40px); }
+.adm-head {
+  display: flex; align-items: center; gap: 12px; padding: 10px 14px; flex: none;
+  border-bottom: 2px solid var(--ink); background: var(--surface);
+  font-family: var(--px); font-size: .82rem; text-transform: uppercase;
+}
+.adm-head b { font-weight: 400; padding: 1px 8px; background: var(--ink); color: var(--paper); }
+.adm-status { font-family: var(--sans); text-transform: none; font-size: .78rem; color: var(--muted); }
+.adm-x { margin-left: auto; width: 28px; height: 28px; border: 2px solid var(--ink); background: var(--paper); color: var(--ink); cursor: pointer; font-size: .8rem; }
+.adm-x:hover { background: var(--ink); color: var(--paper); }
+.adm-form, .ed { padding: 18px; display: flex; flex-direction: column; gap: 12px; overflow: auto; }
+.ed { flex: 1; min-height: 0; }
+.adm-modal label, .adm-field { display: flex; flex-direction: column; gap: 4px; font-family: var(--px); font-size: .68rem; text-transform: uppercase; color: var(--muted); min-width: 0; }
+.adm-modal input, .adm-modal textarea, .adm-modal select {
+  font-family: var(--sans); font-size: .95rem; text-transform: none; color: var(--ink);
+  padding: 8px 10px; border: 2px solid var(--ink); background: var(--surface); outline: 0; border-radius: 0; width: 100%;
+}
+.adm-modal input:focus, .adm-modal textarea:focus, .adm-modal select:focus { box-shadow: 3px 3px 0 var(--accent); }
+.adm-modal input[readonly] { color: var(--muted); background: var(--paper); }
+.adm-modal textarea { resize: vertical; line-height: 1.6; }
+.adm-row { display: flex; gap: 12px; flex-wrap: wrap; }
+.adm-row > * { flex: 1 1 160px; }
+.adm-row .sm { flex: 0 1 170px; }
+.adm-row .xs { flex: 0 1 100px; }
+.adm-row .grow, .adm-foot .grow { flex: 1 1 220px; }
+.adm-note { font-family: var(--sans); font-size: .8rem; color: var(--muted); text-transform: none; }
+.adm-note a { color: var(--accent); text-decoration: underline; }
+.adm-note code { font-family: var(--mono); font-size: .78rem; padding: 0 4px; border: 1px solid var(--ink); }
+.adm-err { font-size: .85rem; color: #fffaf2; background: #c4472f; padding: 6px 10px; border: 2px solid var(--ink); }
+.adm-foot {
+  display: flex; align-items: center; gap: 10px; flex-wrap: wrap; padding: 12px 18px; flex: none;
+  border-top: 2px solid var(--ink); background: var(--surface);
+}
+.adm-form .adm-foot { margin: 6px -18px -18px; }
+.adm-foot .btn { padding: 9px 18px; font-size: .78rem; cursor: pointer; }
+.adm-foot .btn:disabled { opacity: .6; cursor: progress; transform: none; }
+.btn.danger { color: #c4472f; }
+.adm-sugs { display: flex; flex-wrap: wrap; gap: 6px; margin-top: -4px; }
+.adm-sugs:empty { display: none; }
+.adm-sug { font-family: var(--mono); font-size: .74rem; padding: 0 8px; border: 1.5px dashed var(--ink); background: none; color: var(--muted); cursor: pointer; }
+.adm-sug:hover { border-style: solid; color: var(--ink); background: var(--surface); }
+
+/* 阅读状态 / 评分 */
+.seg { display: flex; }
+.seg label { flex-direction: row; position: relative; }
+.seg input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+.seg span { padding: 6px 14px; border: 2px solid var(--ink); margin-left: -2px; background: var(--surface); color: var(--ink); cursor: pointer; font-size: .72rem; }
+.seg label:first-child span { margin-left: 0; }
+.seg input:checked + span { background: var(--ink); color: var(--paper); }
+.seg input:focus-visible + span { box-shadow: 3px 3px 0 var(--accent); }
+.rate { display: flex; align-items: center; gap: 4px; padding-top: 4px; }
+.rate [data-r] { width: 22px; height: 22px; border: 2px solid var(--ink); background: var(--surface); cursor: pointer; padding: 0; }
+.rate [data-r].on { background: var(--accent); }
+.rate .clear { width: auto; height: auto; border: 0; background: none; font-family: var(--px); font-size: .62rem; color: var(--muted); margin-left: 6px; text-decoration: underline; }
+
+/* 编辑器 */
+.adm-modal .ed-title { font-family: var(--serif); font-size: 1.5rem; font-weight: 600; }
+.ed-toolbar { display: flex; flex-wrap: wrap; gap: 4px; align-items: center; padding: 6px; border: 2px solid var(--ink); border-bottom: 0; background: var(--surface); margin-bottom: -12px; }
+.ed-toolbar button { font-family: var(--mono); font-size: .78rem; padding: 3px 9px; border: 1.5px solid var(--ink); background: var(--paper); color: var(--ink); cursor: pointer; }
+.ed-toolbar button:hover, .ed-toolbar button.on { background: var(--ink); color: var(--paper); }
+.ed-tabs { margin-left: auto; display: none; }
+.ed-body { flex: 1; min-height: 340px; display: grid; grid-template-columns: 1fr 1fr; border: 2px solid var(--ink); }
+.adm-modal .ed-md { border: 0; border-right: 2px solid var(--ink); box-shadow: none; resize: none; font-family: var(--mono); font-size: .9rem; line-height: 1.75; height: 100%; min-height: 340px; padding: 16px; }
+.adm-modal .ed-md:focus { box-shadow: none; background: var(--surface); }
+.ed-preview { overflow: auto; padding: 16px 22px; background: var(--paper); font-size: 1rem; text-transform: none; }
+
+/* 浮动管理栏 + 列表项上的编辑按钮 */
+.adm-dock {
+  position: fixed; right: 18px; bottom: 18px; z-index: 90; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; justify-content: flex-end;
+  padding: 8px; background: var(--paper); border: 2px solid var(--ink); box-shadow: 5px 5px 0 var(--sh);
+}
+.adm-dock .btn { padding: 8px 14px; font-size: .74rem; cursor: pointer; box-shadow: 3px 3px 0 var(--sh); }
+.adm-dock .btn.icon { padding: 8px 10px; }
+.adm-badge { font-family: var(--px); font-size: .62rem; padding: 0 6px; background: var(--accent); color: #fffaf2; }
+.adm-item-bar { display: flex; gap: 6px; }
+.adm-item-bar button { font-family: var(--px); font-size: .64rem; text-transform: uppercase; padding: 1px 8px; border: 1.5px solid var(--ink); background: var(--surface); color: var(--ink); cursor: pointer; }
+.adm-item-bar button:hover { background: var(--ink); color: var(--paper); }
+.adm-item-bar .danger { color: #c4472f; }
+.note-item { position: relative; }
+.note-item .adm-item-bar { position: absolute; right: 8px; bottom: 10px; }
+.paper .adm-item-bar { margin-top: 12px; padding-top: 10px; border-top: 1.5px dashed rgba(var(--ink-rgb), .3); }
+
+/* 提示 */
+.adm-toast {
+  position: fixed; left: 50%; top: 22px; z-index: 300; transform: translateX(-50%);
+  padding: 10px 18px; font-size: .9rem; background: var(--ink); color: var(--paper); border: 2px solid var(--ink); box-shadow: 4px 4px 0 var(--accent);
+  max-width: calc(100vw - 32px);
+}
+.adm-toast.err { background: #c4472f; color: #fffaf2; box-shadow: 4px 4px 0 var(--sh); }
+.adm-toast.out { opacity: 0; transition: opacity .3s steps(3); }
+
+@media (max-width: 760px) {
+  .ed-tabs { display: inline-flex; gap: 4px; }
+  .ed-body { grid-template-columns: 1fr; }
+  .ed-body[data-view="edit"] .ed-preview, .ed-body[data-view="preview"] .ed-md { display: none; }
+  .adm-modal .ed-md { border-right: 0; }
+  .adm-overlay { padding: 0; }
+  .adm-modal, .adm-modal.wide { max-height: 100vh; height: 100vh; width: 100%; box-shadow: none; }
+  .adm-dock { left: 12px; right: 12px; bottom: 12px; }
+}

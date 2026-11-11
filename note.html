@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>记录 · Shay Liu</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Noto+Serif+SC:wght@500;700&family=Noto+Sans+SC:wght@400;500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="admin.css" />
+  <script src="theme.js"></script>
+</head>
+<body class="note-page">
+  <header class="nav" id="nav">
+    <a href="index.html" class="logo"><i class="px-icon" data-icon="robot"></i>SHAY.LIU</a>
+    <div class="nav-right">
+      <nav>
+        <button class="menu-btn" id="menuBtn" aria-label="菜单"><span></span><span></span></button>
+        <ul id="menu">
+          <li><a href="index.html#about"><i>01</i>关于</a></li>
+          <li><a href="index.html#notes"><i>03</i>记录</a></li>
+          <li><a href="index.html#archive"><i>04</i>档案库</a></li>
+        </ul>
+      </nav>
+      <button class="theme-btn" id="themeBtn" aria-label="切换明暗主题" title="切换明暗主题"><i class="px-icon" data-icon="moon"></i></button>
+    </div>
+  </header>
+
+  <main class="note-wrap">
+    <a class="back-link" href="index.html#notes">← 所有记录</a>
+    <article id="article">
+      <p class="empty">加载中…</p>
+    </article>
+    <nav class="note-pager" id="pager"></nav>
+  </main>
+
+  <footer>
+    <p>Made with <span class="heart">♥</span> &amp; pixels by Shay · <span id="year"></span></p>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/12.0.2/marked.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
+  <script src="main.js"></script>
+  <script src="md.js"></script>
+  <script src="admin.js"></script>
+  <script src="note.js"></script>
+</body>
+</html>

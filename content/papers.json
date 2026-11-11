@@ -1,0 +1,103 @@
+[
+  {
+    "title": "π0: A Vision-Language-Action Flow Model for General Robot Control",
+    "authors": "Black et al.",
+    "venue": "arXiv",
+    "year": 2024,
+    "tags": ["VLA", "Flow Matching"],
+    "status": "reading",
+    "rating": 5,
+    "tldr": "用 flow matching 生成连续动作的 VLA，在多种机器人形态的大规模数据上预训练。",
+    "pdf": "https://arxiv.org/abs/2410.24164"
+  },
+  {
+    "title": "OpenVLA: An Open-Source Vision-Language-Action Model",
+    "authors": "Kim et al.",
+    "venue": "CoRL",
+    "year": 2024,
+    "tags": ["VLA", "开源"],
+    "status": "read",
+    "rating": 4,
+    "tldr": "开源的 7B VLA，基于 Open X-Embodiment 数据训练，支持高效微调。",
+    "pdf": "https://arxiv.org/abs/2406.09246"
+  },
+  {
+    "title": "Mobile ALOHA: Learning Bimanual Mobile Manipulation with Low-Cost Whole-Body Teleoperation",
+    "authors": "Fu et al.",
+    "venue": "arXiv",
+    "year": 2024,
+    "tags": ["遥操作", "移动操作"],
+    "status": "todo",
+    "rating": 0,
+    "tldr": "低成本全身遥操作系统 + 与静态数据联合训练，完成移动双臂操作任务。",
+    "pdf": "https://arxiv.org/abs/2401.02117"
+  },
+  {
+    "title": "Open X-Embodiment: Robotic Learning Datasets and RT-X Models",
+    "authors": "Open X-Embodiment Collaboration",
+    "venue": "ICRA",
+    "year": 2024,
+    "tags": ["数据集", "跨本体"],
+    "status": "read",
+    "rating": 4,
+    "tldr": "汇集多机构、多机器人形态的大规模数据集，验证跨本体训练的正迁移。",
+    "pdf": "https://arxiv.org/abs/2310.08864"
+  },
+  {
+    "title": "RT-2: Vision-Language-Action Models Transfer Web Knowledge to Robotic Control",
+    "authors": "Brohan et al.",
+    "venue": "CoRL",
+    "year": 2023,
+    "tags": ["VLA"],
+    "status": "read",
+    "rating": 5,
+    "tldr": "把动作离散成 token，与视觉语言模型联合微调，让网络知识迁移到机器人控制。",
+    "pdf": "https://arxiv.org/abs/2307.15818"
+  },
+  {
+    "title": "Diffusion Policy: Visuomotor Policy Learning via Action Diffusion",
+    "authors": "Chi et al.",
+    "venue": "RSS",
+    "year": 2023,
+    "tags": ["模仿学习", "扩散模型"],
+    "status": "read",
+    "rating": 5,
+    "tldr": "把动作生成建模为条件去噪过程，天然表达多峰动作分布。",
+    "pdf": "https://arxiv.org/abs/2303.04137",
+    "note": "diffusion-policy"
+  },
+  {
+    "title": "Learning Fine-Grained Bimanual Manipulation with Low-Cost Hardware",
+    "authors": "Zhao et al.",
+    "venue": "RSS",
+    "year": 2023,
+    "tags": ["模仿学习", "遥操作"],
+    "status": "read",
+    "rating": 4,
+    "tldr": "ALOHA 硬件 + ACT（Action Chunking with Transformers），低成本完成精细双臂操作。",
+    "pdf": "https://arxiv.org/abs/2304.13705"
+  },
+  {
+    "title": "Learning to Walk in Minutes Using Massively Parallel Deep Reinforcement Learning",
+    "authors": "Rudin et al.",
+    "venue": "CoRL",
+    "year": 2021,
+    "tags": ["强化学习", "Locomotion", "Sim2Real"],
+    "status": "read",
+    "rating": 4,
+    "tldr": "在 GPU 上并行数千个环境，几分钟内训练出可迁移到真机的四足步态。",
+    "pdf": "https://arxiv.org/abs/2109.11978"
+  },
+  {
+    "title": "Domain Randomization for Transferring Deep Neural Networks from Simulation to the Real World",
+    "authors": "Tobin et al.",
+    "venue": "IROS",
+    "year": 2017,
+    "tags": ["Sim2Real"],
+    "status": "read",
+    "rating": 3,
+    "tldr": "在仿真中大幅随机化视觉外观，让真实世界看起来只是又一种随机变化。",
+    "pdf": "https://arxiv.org/abs/1703.06907",
+    "note": "domain-randomization"
+  }
+]
